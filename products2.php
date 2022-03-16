@@ -194,7 +194,24 @@ $img_name = $_FILES['ImageEdit']['name'];
             </div>
             
             <div id="service">
-            
+                    <div class='  box shop-item' id='box-search'>
+                        <img class='shop-item-image' src='https://cdna.pcpartpicker.com/static/forever/images/product/3ef757133d38ac40afe75da691ba7d60.256p.jpg' alt=''>
+                        <h2 class=' shop-item-title textcenter h-secondary '>AMD Ryzen 5 5600X 3.7 GHz 6-Core Processor</h2>
+                        <h4 class='textcenter'></h4>
+                        <h5 class='textcenter'>Price:₹2500 </h5>
+                        <h5 style='text-align: center;'>Product code:1</h5>
+                        <button type='button' class='btn btn-info addToBagButton'>Add to Bag</button>
+                     </div>
+
+                     
+                    <div class='  box shop-item' id='box-search'>
+                        <img class='shop-item-image' src='https://m.media-amazon.com/images/I/51iEOq4jUaL.jpg' alt=''>
+                        <h2 class=' shop-item-title textcenter h-secondary '>Asus ROG STRIX B550-F GAMING (WI-FI) ATX AM4 Motherboard</h2>
+                        <h4 class='textcenter'></h4>
+                        <h5 class='textcenter'>Price:₹5666</h5>
+                        <h5 style='text-align: center;'> Product code :2</h5>
+                        <button type='button' class='btn btn-info addToBagButton'>Add to Bag</button>
+                     </div>
            
             <?php 
           $sql = "SELECT * FROM `product` ORDER BY `srno.` DESC ";
@@ -210,9 +227,17 @@ $img_name = $_FILES['ImageEdit']['name'];
                   <h4 class='textcenter'>".$product['product_desc']."</h4>
                   <h5 class='textcenter'>Price:₹".$product['price']." </h5>
                   <h5 style='text-align: center;'> Product code :".$product['srno.']."</h5>
+                  
                   ";
                   
                    
+                  if ($loggedin) {
+                            echo "
+                            <button type='button' class='btn btn-info addToBagButton'>Add to Bag</button>
+                        
+                        ";
+                            
+                  }
                   if ($adminloggedin) {
                             echo "
                             <button class='edit btn-sm btn-primary ' id=" .$product['srno.'] .">Edit</button>
@@ -237,130 +262,8 @@ $img_name = $_FILES['ImageEdit']['name'];
             
         </div>
 
-        <div id="mycart" class="tabcontent">
-            <!-- codes for cart section  -->
-            <section class="cart border">
-                <h2>This is your Cart</h2>
-                <div class="cart-items border">
-                    <div class="cart-heading">
-                        <div class="item-heading">ITEMS</div>
-                        <div class="price-heading">PRICE</div>
-                        <div class="quantity-heading">QUANTITY</div>
-                    </div>
-                    <!-- <div class="cart-row"> 
-                <div class="cart-item border">
-                    <img src="images/service-img3.jpg" alt="" class="cart-item-image">
-                    <div class="cart-item-title">Lemon</div>
-                </div>
-
-                <div class="cart-price border "> Rs. 05</div>
-
-                <div class="cart-quantity border">
-                    <input type="number" class=" input cart-quantity-input" value="5">
-                    <button class="btn btn-remove">Remove</button>
-                </div>   
-            </div> -->
-
-                </div>
-            </section>
-            <div class="price_purchase">
-
-
-                <div class="total-price">
-                    <div><span>Total:</span> <span class="total-price-value">Rs. 0</span></div>
-                </div>
-                <div class="purchase">
-
-                    <button class="btn2">Purchase</button>
-
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-    <!-- codes for cart section  -->
-    <!-- <section class="cart border">
-        <h2>This is your Cart</h2>
-        <div class="cart-items border">
-            <div class="cart-heading">
-                <div class="item-heading">ITEMS</div>
-                <div class="price-heading">PRICE</div>
-                <div class="quantity-heading">QUANTITY</div>
-            </div>
-            <div class="cart-row">
-
-                <div class="cart-item border">
-                    <img src="images/service-img3.jpg" alt="" class="cart-item-image">
-                    <div class="cart-item-title">Lemon</div>
-                </div>
-
-                <div class="cart-price border "> Rs. 05</div>
-
-                <div class="cart-quantity border">
-                    <input type="number" class="cart-quantity-input" value="5">
-                    <button class="btn btn-remove">Remove</button>
-                </div>
-            </div>
-            
-            <div class="cart-row">
-
-                <div class="cart-item border">
-                    <img src="images/berries.jpg" alt="" class="cart-item-image">
-                    <div class="cart-item-title">Berries</div>
-                </div>
-
-                <div class="cart-price border "> Rs. 100</div>
-
-                <div class="cart-quantity border">
-                    <input type="number" class="cart-quantity-input" value="3">
-                    <button class="btn btn-remove">Remove</button>
-                </div>
-            </div>
-            <div class="cart-row">
-
-                <div class="cart-item border">
-                    <img src="images/watermelon.jpg" alt="" class="cart-item-image">
-                    <div class="cart-item-title">Watermelon</div>
-                </div>
-
-                <div class="cart-price border "> Rs. 60</div>
-
-                <div class="cart-quantity border">
-                    <input type="number" class="cart-quantity-input" value="3">
-                    <button class="btn btn-remove">Remove</button>
-                </div>
-            </div>
-            <div class="cart-row">
-
-                <div class="cart-item border">
-                    <img src="images/pear.jpg" alt="" class="cart-item-image">
-                    <div class="cart-item-title">Pears</div>
-                </div>
-
-                <div class="cart-price border "> Rs. 90</div>
-
-                <div class="cart-quantity border">
-                    <input type="number" class="cart-quantity-input" value="3">
-                    <button class="btn btn-remove">Remove</button>
-                </div>
-            </div>
-            <div class="total-price">
-                <div><span>Total:</span> <span class="total-price-value"> Rs.110</span></div>
-            </div>
-            <div class="purchase">
-                <div class="purchase-btn">
-                    <button class="btn">Purchase</button>
-                </div>
-            </div>
-            
-        </div>
-
-        </div>
-    </section> -->
-
-    <!-- cart section codes ends here  -->
-    <!-- services section ends here  -->
+       
+    
 
 
     <!-- footer starts here  -->
@@ -386,7 +289,7 @@ $img_name = $_FILES['ImageEdit']['name'];
 
   <!-- Option 1: Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-
+    <script src="myCart.js"></script>
   <!-- Option 2: Separate Popper and Bootstrap JS -->
   <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>

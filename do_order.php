@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <script src="typed.js"></script>
     <meta charset="UTF-8">
     <script src="https://kit.fontawesome.com/5ee8b4ab96.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="font-awesome.min.css">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Bootstrap CSS -->
@@ -47,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/myCart.css">
     <title>Order</title>
 </head>
 
@@ -72,24 +73,37 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
   </div>';
     }   ?>
     <!-- SIphp section starts here  -->
+    <!-- Cart showing section starts here  -->
+    <div class="cartHeading">
+        <div class="imageHeading">
+            
+        </div>
+        <div class="itemHeading">
+            <h6>Title</h6>
+        </div>
+        <div class="priceHeading">
+            <h6>Price</h6>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div id="myCart">
+        
+    </div>
+    <div class="divider"></div>
+    <div class="totalPrice"id="totalPrice">
+        <h5 ></h5>
+        <h6 ></h6>
+        <h5 ></h5>
+    </div>
+
+
+
+    <!-- Cart showing section ends here  -->
 
     <div class="container my-4">
         <h1>Order Now</h1>
         <form action="do_order.php" method="POST">
-            <!-- <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label"> Name</label>
-                <input type="text" class="form-control" name="name" required id="exampleInputEmail1" aria-describedby="emailHelp">
-                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> 
-            </div> -->
-            <!-- <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Enter Your Phone no.</label>
-                <input type="text" class="form-control" name="phone" required id="exampleInputEmail1" aria-describedby="emailHelp">
-               
-            </div> -->
-            <!-- <div class="mb-3">
-                <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" required>
-            </div> -->
+           
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Enter your Address</label>
                 <textarea class="form-control" name="address" id="exampleFormControlTextarea1" required rows="3"></textarea>
@@ -159,7 +173,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
     -->
-
+    <script src="showCart.js"></script>
 </body>
 <script>
     // <!-- typedjs for home section starts here  

@@ -331,8 +331,8 @@ sidepanel css starts ehere */
 /*css of divider */
 
 .divider {
-    width: 70vw;
-    margin: 10px auto;
+    width: 70%;
+    margin: 10px 10px 10px 100px;
     background: #f1f1f1;
     height: 4px;
 }
