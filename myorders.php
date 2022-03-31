@@ -40,16 +40,15 @@ $user_detail = mysqli_fetch_assoc($result);
 
     <!-- navbar ends here  -->
     <!-- contact section starts here  -->
-    <div class="container my-4">
+     <div class="container my-4">
         <h1>Your Orders</h1>
 
-        <table class="table table-dark table-hover">
+        <table id = "orderTable" class="table table-dark table-hover">
 
             <tr>
                 
                 <th class="table-dark">Sr no.</th>
                 <th class="table-dark">Product</th>
-                <th class="table-dark">Quantity</th>
                 <th class="table-dark">Payment Type</th>
                 <th class="table-dark">Date & Time</th>
 
@@ -60,62 +59,72 @@ $user_detail = mysqli_fetch_assoc($result);
                 while ($user_detail = mysqli_fetch_assoc($result)) 
                 {
                     // <!-- table for showing orders  -->
+                   
                     echo '
+                            
                             <tr class="table">
 
                                 <td class="table-success">' . $srno. '</td>
                                 <td class="table-success">' . $user_detail['product'] . '</td>
-                                <td class="table-success ">' . $user_detail['quantity'] . '</td>
                                 <td class="table-success">' . $user_detail['payment_type'] . '</td>
                                 <td class="table-success">' . $user_detail['date & time'] . '</td>
                             </tr>
                         ';
                         $srno += 1;
                 }
-
+                
             ?>
         </table>
-    </div>
-    <!-- table for showing orders  -->
-    <!-- footer starts here 
-    <footer id="footer" class="textcenter">
-        <div id="footertype">
-            <span class="type1"></span>
-        </div>
-    </footer> -->
-    <!-- footer ends here  -->
+    </div> 
+    
+   
+   
+   
+   <?php
+    
+          	//     while ($userDetail = mysqli_fetch_assoc($result))
+			//    {    
+
+			// 	  echo"  
+            //       <div class='  box shop-item' id='box-search'>
+            //       <img class='shop-item-image' src='uploads/".$userDetail['image_url']."' alt=''>
+            //       <h2 class=' shop-item-title textcenter h-secondary '>".$userDetail['product']."</h2>
+                 
+            //       <h5 style='text-align: center;'> Product code :".$userDetail['srno.']."</h5>
+            //       <h5 class='textcenter'>Price:₹".$userDetail['price']." </h5>
+                  
+            //     </div>";
+                        
+                
+              
+            
+      		//     }
+	         
+	  
 
 
-    <!-- Optional JavaScript; choose one of the two! -->
+            ?>
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
+
+
+
+
+
+
+
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
-    -->
+  
 
 </body>
+
+    
 <script>
-    // <!-- typedjs for home section starts here  
 
-
-    var typed = new Typed('.type', {
-        strings: ['Welcome to the Fruit World.'],
-        //   smartBackspace: true // Default value
-        typeSpeed: 90,
-        backSpeed: 40,
-        loop: true,
-        startDelay: 1000
-    });
-
-
-    // typed.js for home section ends here 
-
-
-    // typedjs for footer stsrts here  -->
+  
 
     var typed = new Typed('.type1', {
         strings: ['@Copy YourKart, All Right Reserved.', 'Website Made by Sahil shaikh.'],
@@ -127,7 +136,7 @@ $user_detail = mysqli_fetch_assoc($result);
     });
 
 
-    // <!-- typedjs for footer ends here  -->
+    
 
 
     /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */

@@ -14,11 +14,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $email = $_SESSION['email'];
     $phone = $_SESSION['phone'];
     $address = $_POST['address'];
-    $product = $_POST['product'];
-    $quantity = $_POST['quantity'];
+    $products = $_POST['products'];
+    $price = $_POST['price'];
     $payment_type = $_POST['payment_type'];
 
-    $sql = "INSERT INTO `orders` (`name`, `email`, `phone`, `address`, `product`,`quantity`,`payment_type`,`date & time`) VALUES ('$name', '$email', '$phone', '$address', '$product','$quantity','$payment_type', CURRENT_TIMESTAMP)";
+    $sql = "INSERT INTO `orders` (`name`, `email`, `phone`, `address`, `product`,`price`,`payment_type`,`date & time`) VALUES ('$name', '$email', '$phone', '$address', '$products','$price','$payment_type', CURRENT_TIMESTAMP)";
     $result = mysqli_query($conn, $sql);
 
     if ($result) {
@@ -74,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }   ?>
     <!-- SIphp section starts here  -->
     <!-- Cart showing section starts here  -->
-    <div class="cartHeading">
+    <!-- <div class="cartHeading">
         <div class="imageHeading">
             
         </div>
@@ -84,61 +84,26 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <div class="priceHeading">
             <h6>Price</h6>
         </div>
-    </div>
-    <div class="divider"></div>
+    </div> -->
+    <!-- <div class="divider"></div> -->
+    <div id="cart">
     <div id="myCart">
-        
+    <!--  -->
     </div>
-    <div class="divider"></div>
-    <div class="totalPrice"id="totalPrice">
-        <h5 ></h5>
-        <h6 ></h6>
-        <h5 ></h5>
-    </div>
-
-
-
-    <!-- Cart showing section ends here  -->
-
-    <div class="container my-4">
-        <h1>Order Now</h1>
-        <form action="do_order.php" method="POST">
-           
+    <div class="container my-4 " id = "form">
+        <form action="do_order.php" method="POST" id="orderForm">
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Enter your Address</label>
                 <textarea class="form-control" name="address" id="exampleFormControlTextarea1" required rows="3"></textarea>
             </div>
             <br>
-            <div class="form-group">
-                <label for="exampleFormControlSelect1">Select Product</label>
-                <select class="form-control" name="product" id="exampleFormControlSelect1">
-                <?php 
-          $sql = "SELECT * FROM `product` ORDER BY `srno.` DESC ";
-          $res = mysqli_query($conn,  $sql);
-
-          if (mysqli_num_rows($res) > 0) {
-          	while ($product = mysqli_fetch_assoc($res))
-			   { 
-				  echo"<option>".$product['product_name']."| INR.".$product['price']."|".$product['product_desc']."
-                  </option>
-                  
-             ";
-          		
-      			}
-	}
-	  
-	  ?>
-                    <!-- <option>Locomotive|
-                        Men Slim Fit Casual Shirt| INR.879</option> -->
-                   
-                </select>
-            </div><br>
-            <label for="exampleFormControlSelect1">Select Quantity</label>
-            <select class="form-select" name="quantity" aria-label="Default select example">
-                <option selected value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-            </select><br>
+            <div class="totalPrice" id = "totalPrice">
+                <h5 ></h5>
+                <h6 ></h6>
+                <h5 ></h5>
+            </div>
+            <input type="hidden" name="products" id="products">
+            <input type="hidden" name="price" id="price">
             <label for="exampleFormControlSelect1">Select Payment Type</label>
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" required name="payment_type"  value="cash-on-delivery" id="defaultCheck1">
@@ -148,11 +113,22 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             </div>
     
             <br>
-            <button type="submit" class="btn btn-primary">Purchase</button>
+            <button type="submit" class="btn btn-primary" id="submit">Purchase</button>
         </form>
 
-
     </div>
+    
+    </div>
+    <div id="emptyCart">
+        <img src="images/emptyCart.jpg" alt="">
+    </div>
+    
+
+
+
+    <!-- Cart showing section ends here  -->
+
+    
 
     <!-- footer starts here 
     <footer id="footer" class="textcenter">

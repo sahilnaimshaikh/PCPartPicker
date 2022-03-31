@@ -1,6 +1,7 @@
 
 #myCart{
     margin: 20px 10px 20px 10px;
+    width: 150%;
     display: flex;
     flex-direction: column;
 }
@@ -23,7 +24,12 @@
     height: 190px;
     display: flex;
 }
-
+#cart{
+    margin: 20px;
+    padding: 5px;
+    display: flex;
+    position: sticky;
+}
 .cartItemImage{
     width: 270px;
 }
@@ -43,8 +49,22 @@
     text-align: center;
 
 }
-#totalPrice{
+.form{
+    padding: 5px;
+    border-left: 1px solid olivedrab;
+    position: absolute;
+}
+.totalPrice{
     width: 77%;
-    padding: 0px 171px;
-    text-align: end;
+       
+}
+#emptyCart {
+
+   width: fit-content;
+    display: block;
+    margin: auto;
+}
+
+#emptyCart img{
+    width: 700px;
 }

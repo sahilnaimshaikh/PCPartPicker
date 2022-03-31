@@ -1,15 +1,24 @@
 console.log("this is showcart file")
+
 function showCart() {
     let products = localStorage.getItem('products');
     if (products == null) {
+        
         productsArray = []
     }
     else {
         productsArray = JSON.parse(products);
     }
-    console.log(productsArray);
-
-
+    // console.log(productsArray);
+    
+    if(productsArray.length==0){
+        console.log("no products")
+        document.getElementById("cart").style.display = "none";
+        document.getElementById("emptyCart").style.display = "block"
+    }
+    else{
+        document.getElementById("emptyCart").style.display = "none"
+    }
     let html = "";
     let totalPrice = 0;
     Array.from(productsArray).forEach((e, index) => {
@@ -43,6 +52,7 @@ function showCart() {
     document.getElementById('totalPrice').children[1].innerText = `Total Dicount: 10%`;
     document.getElementById('totalPrice').children[2].innerText = `Payable Amount: ${totalPrice-(totalPrice/10)}`;
 
+    
 }
 showCart();
 
@@ -59,3 +69,27 @@ function removeProduct(index) {
     localStorage.setItem('products', JSON.stringify(productsArray));
     showCart();
 }
+
+document.getElementById("submit").addEventListener("click",(e)=>{
+    // e.preventDefault();
+    let products = localStorage.getItem('products');
+    if (products == null) {
+        
+        productsArray = []
+    }
+    else {
+        productsArray = JSON.parse(products);
+    }
+    Array.from(productsArray).forEach((e, index) => {
+        let productName = e.productName;
+        let productPrice = e.productPrice;
+        // let productImgSrc = e.productImgSrc;
+        document.getElementById("price").value = productPrice;
+        document.getElementById("products").value = productName;
+        productsArray.splice(0,1);
+        document.getElementById("orderForm").submit();   
+    })
+    console.log("reached")
+    localStorage.clear();
+})
+

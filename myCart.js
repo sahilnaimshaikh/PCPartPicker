@@ -1,5 +1,6 @@
 console.log("hello i am in myCart.js file")
 
+
 let addToBagButton = document.getElementsByClassName("addToBagButton");
 // console.log(addToBagButton)
 // addToBagButton.addEventListener('click',addToBag(){
